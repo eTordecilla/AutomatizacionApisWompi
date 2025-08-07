@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'net.serenity-bdd.serenity-gradle-plugin' version '3.6.22'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    serenityCoreVersion = '3.6.22'
+    junitVersion = '5.9.2'
+    slf4jVersion = '2.0.7'
+    logbackVersion = '1.4.7'
+}
+
+dependencies {
+    // Dependencias principales de Serenity
+    implementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-cucumber:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-screenplay-rest:${serenityCoreVersion}"
+    implementation "net.serenity-bdd:serenity-rest-assured:${serenityCoreVersion}"
+
+    // JSON Processing
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.3'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.3'
+
+    // JUnit 4 (necesario para CucumberWithSerenity)
+    testImplementation "junit:junit:4.13.2"
+
+    // JUnit 5
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+
+    // Cucumber
+    testImplementation "io.cucumber:cucumber-java:7.11.2"
+    testImplementation "io.cucumber:cucumber-junit:7.11.2"
+
+    // Logging
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}"
+}
+
+test {
+    useJUnit()
+
+    systemProperties System.getProperties()
+
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+
+    include '**/ApiTestRunner.class'
+
+    systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags", "")
+    systemProperty "wompi.api.base.url", "https://api-sandbox.co.uat.wompi.dev"
+    systemProperty "wompi.api.public.key", "pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7"
+
+    outputs.upToDateWhen { false }
+}
+
+tasks.withType(Test) {
+    systemProperty "file.encoding", "UTF-8"
+}
+
+serenity {
+    testRoot = "co.wompi.runners"
+    requirementsBaseDir = "src/test/resources/features"
+}
+
+gradle.startParameter.continueOnFailure = true

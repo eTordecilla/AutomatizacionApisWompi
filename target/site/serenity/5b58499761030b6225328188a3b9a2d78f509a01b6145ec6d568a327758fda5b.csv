@@ -1,0 +1,6 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Consulta de informacion del comercio en Wompi","Consulta exitosa verifica campos obligatorios","ERROR","2025-08-06T21:24:35.3530644-05:00[America/Bogota]","0.0","0.09"
+"Consulta de informacion del comercio en Wompi","Consulta exitosa verifica metodos de pago aceptados","ERROR","2025-08-06T21:24:35.4594906-05:00[America/Bogota]","0.0","0.07"
+"Consulta de informacion del comercio en Wompi","Consulta fallida con llave pública invalida","ERROR","2025-08-06T21:24:35.5367688-05:00[America/Bogota]","0.0","0.08"
+"Consulta de informacion del comercio en Wompi","Consulta fallida sin llave publica","FAILURE","2025-08-06T21:24:35.6248518-05:00[America/Bogota]","0.0","0.74"
+"Consulta de informacion del comercio en Wompi","Consulta fallida con endpoint incorrecto","ERROR","2025-08-06T21:24:36.3787958-05:00[America/Bogota]","0.0","0.07"
