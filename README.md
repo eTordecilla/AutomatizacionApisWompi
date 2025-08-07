@@ -1,13 +1,13 @@
 # Autor:Elkin David Tordecilla Avila
-#### https://www.linkedin.com/in/alejandro-polo-carvajal-790b79186/
+#### https://www.linkedin.com/in/elkin-david-tordecilla-avila-b137ab152/
 ##### ------------------------------------------------------------------------------------------------------
-# Curso Automation API -REST
+# Automation API -REST WOMPI
 ##### ------------------------------------------------------------------------------------------------------
 
 #### URL BASE a consumir:  https://api-sandbox.co.uat.wompi.dev/v1/merchants
 #### Patron de diseño: Screenplay
 #### Framework: gherkin, cucumber, Junit, Serenity-Rest, API-REST
-#### Framework adicionales: SonarLink, cucumber for java
+#### Framework adicionales: cucumber for java
 #### Lenguaje programacion: Java
 #### version gradle: gradle-8.10
 #### OPEN_JDK Version 17.0.11
@@ -15,8 +15,6 @@
 ##### ------------------------------------------------------------------------------------------------------
 
 ### Todos los casos pruebas cumplen con cada criterio solicitado
-### Todas las clases estan con auto-ident lines y reformat code
-### El codigo no tiene ningun Bug o codeSmell
 ##### ------------------------------------------------------------------------------------------------------
 # PASOS PARA LA EJECUCIÓN
 
@@ -27,11 +25,8 @@
 #### ./gradlew clean test
 
 ### Comando para ejecutar por feature
-#### ./gradlew test --tests "org.wompi.runners.GetRunner"
-#### ./gradlew test --tests "org.wompi.runners" --- TODO LOS FEATURES
+#### ./gradlew test --tests "org.wompi.runners.ApiTestRunner"
 
-### Comando para generar reporte despues que haya terminado un test (Por consola arrojara la ruta .html )
-#### ./gradlew reports
+### Comando para generar los test y el reporte despues que haya terminado un test (Por consola arrojara la ruta .html )
+#### ./gradlew clean test aggregate
 
-### Comando para limpiar la carpeta Target (Reportes)
-#### ./gradlew clearReports
