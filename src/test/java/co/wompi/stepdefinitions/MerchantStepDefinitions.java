@@ -11,45 +11,64 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
-import net.thucydides.core.util.EnvironmentVariables;
 import org.hamcrest.Matchers;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 
+// Step Definitions para los escenarios relacionados con la consulta de comercios usando la API de Wompi
 public class MerchantStepDefinitions {
 
-    private EnvironmentVariables environmentVariables;
-    //private final Actor alejandra = Actor.named("Alejandra");
+    // Constantes de configuración para las pruebas (URL base y llave pública válida)
+    private static final String BASE_URL   = "https://api-sandbox.co.uat.wompi.dev";
+    private static final String PUBLIC_KEY = "pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7";
+
+    // Variables que permiten cambiar la llave pública durante el flujo de pruebas
     private String public_key;
     private Actor alejandra;
-    private static final String BASE_URL    = "https://api-sandbox.co.uat.wompi.dev";
-    private static final String PUBLIC_KEY  = "pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7";
 
+    // Se ejecuta antes de cada escenario para inicializar el "elenco" y el actor principal
     @Before
     public void setUp() {
-        OnStage.setTheStage(new OnlineCast());
-        alejandra = OnStage.theActorCalled("Alejandra");
-        // Le damos la habilidad de llamar al API en la base correcta
+        OnStage.setTheStage(new OnlineCast()); // Inicializa el entorno de actores
+        alejandra = OnStage.theActorCalled("Alejandra"); // Crea al actor principal
+        // Otorga a Alejandra la habilidad de llamar la API en la BASE_URL
         alejandra.can(CallAnApi.at(BASE_URL));
     }
 
+    // ---------- GIVEN ----------
+
     @Given("que tengo una llave publica valida")
     public void queTengoUnaLlavePublicaValida() {
-        alejandra.whoCan(CallAnApi.at(PUBLIC_KEY));
+        this.public_key = PUBLIC_KEY;
     }
+
+    @Given("que tengo una llave publica invalida")
+    public void queTengoUnaLlavePublicaInvalida() {
+        this.public_key = "pub_INVALIDA";
+    }
+
+    @Given("que no proporciono una llave publica")
+    public void queNoProporcinoUnaLlavePublica() {
+        this.public_key = "";
+    }
+
+    // ---------- WHEN ----------
 
     @When("consulto la informacion del comercio")
     public void consultoLaInformacionDelComercio() {
         alejandra.attemptsTo(
-                GetMerchant.withPublicKey(PUBLIC_KEY)
+                GetMerchant.withPublicKey(this.public_key)
         );
     }
 
     @When("consulto un endpoint incorrecto")
     public void consultoUnEndpointIncorrecto() {
-        alejandra.whoCan(CallAnApi.at(environmentVariables.getProperty("wompi.api.base.url")));
-        alejandra.attemptsTo(GetMerchantWrongEndpoint.withPublicKey(this.public_key));
+        alejandra.attemptsTo(
+                GetMerchantWrongEndpoint.withPublicKey(this.public_key)
+        );
     }
+
+    // ---------- THEN ----------
 
     @Then("deberia recibir una respuesta exitosa con los datos del comercio")
     public void deberiaRecibirUnaRespuestaExitosaConLosDatosDelComercio() {
@@ -78,11 +97,6 @@ public class MerchantStepDefinitions {
         );
     }
 
-    @Given("que tengo una llave publica invalida")
-    public void queTengoUnaLlavePublicaInvalida() {
-        alejandra.whoCan(CallAnApi.at(PUBLIC_KEY));
-    }
-
     @Then("deberia recibir un codigo de error {int}")
     public void deberiaRecibirUnCodigoDeError(int expectedStatusCode) {
         alejandra.should(
@@ -90,9 +104,4 @@ public class MerchantStepDefinitions {
         );
     }
 
-    @Given("que no proporciono una llave publica")
-    public void queNoProporcionoUnaLlavePublica() {
-        alejandra.whoCan(CallAnApi.at(environmentVariables.getProperty("wompi.api.base.url")));
-        this.public_key = "";
-    }
 }

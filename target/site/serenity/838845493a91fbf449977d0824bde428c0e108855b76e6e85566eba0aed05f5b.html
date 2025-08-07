@@ -144,7 +144,7 @@
             <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="bi bi-chat-text"></i> Features</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 06-08-2025 21:24</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 06-08-2025 23:35</span>
     <br style="clear:left"/>
 </div>
     <div class="clr"></div>
@@ -179,6 +179,12 @@
                                            href="f55cf301e8f51d63aebeb8bc8dbe880df940586e2a502c7a3e24c2b639523f8f.html">Windows
                                         </a>
                                 </span>
+                                    <span class="badge example-tag tag-badge" style="background:default;">
+                                    <i class="bi bi-tag-fill"></i>&nbsp;
+                                        <a class="tagLink" style="background:default;"
+                                           href="654a1bfdfbe6446cd726275c494c50a722da5064284975d2147fb1eeb98c0757.html">Test5
+                                        </a>
+                                </span>
                                     <span class='context-icon'><i class='bi bi-windows' title='Windows'></i></span>
                             </p>
                         </td>
@@ -189,9 +195,9 @@
                 <table class="outcome-header">
                     <tr>
                         <td colspan="2" class="test-title-bar">
-                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon fa-2x' title='FAILURE'></i></a></span>
+                            <span class="outcome-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon fa-2x' title='SUCCESS'></i></a></span>
                             <span class="test-case-title">
-                                <span class="failing-color">
+                                <span class="success-color">
                                     Consulta fallida sin llave publica
                                         <span class="related-issue-title"></span>
                                 </span>
@@ -294,7 +300,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">003ms</span></td>
+                    <td width="100"><span class="top-level-step">001ms</span></td>
                 </tr>
                 <tr class="test-SUCCESS">
 
@@ -321,7 +327,7 @@
                     </td>
 
                     <td width="130"><span class="top-level-step">SUCCESS</span></td>
-                    <td width="100"><span class="top-level-step">627ms</span></td>
+                    <td width="100"><span class="top-level-step">350ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -342,7 +348,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                Alejandra consulta la informacion del comercio con la llave publica {publicKey}
+                                                Alejandra consulta la información del comercio
                                         </span>
                             </a>
                             <span class="evidence">
@@ -351,7 +357,7 @@
                     </td>
 
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">618ms</span></td>
+                    <td width="100"><span class="nested-step">342ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -372,7 +378,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection1-0-0')"
                                style="display:block;">
                                 <span class="nested-step">
-                                                Alejandra executes a GET on the resource /v1/merchants/pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7
+                                                Alejandra executes a GET on the resource /v1/merchants/{publicKey}
                                         </span>
                             </a>
                             <span class="evidence">
@@ -381,7 +387,7 @@
                     </td>
 
                     <td width="130"><span class="nested-step">SUCCESS</span></td>
-                    <td width="100"><span class="nested-step">604ms</span></td>
+                    <td width="100"><span class="nested-step">329ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
@@ -398,7 +404,7 @@
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                GET https://api-sandbox.co.uat.wompi.dev/v1/merchants/pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7
+                                                GET https://api-sandbox.co.uat.wompi.dev/v1/merchants/
                                         </span>
                             <span class="evidence">
                                         <span class="piece-of-evidence">
@@ -414,15 +420,15 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4>Response</h4>
-                                    <p>URL: https://api-sandbox.co.uat.wompi.dev/v1/merchants/pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7</p>
-                                    <p>Status code: 200</p>
+                                    <p>URL: https://api-sandbox.co.uat.wompi.dev/v1/merchants/</p>
+                                    <p>Status code: 401</p>
                                     <p>Content Type: application/json</p>
                                     <h4>Request Headers</h4>
                                     <pre>Accept=*/*<br>Content-Type=application/json</pre>
                                     <h4>Response Headers</h4>
-                                    <pre>Content-Type: application/json<br>Transfer-Encoding: chunked<br>Connection: keep-alive<br>Date: Thu, 07 Aug 2025 02:24:36 GMT<br>apigw-requestid: O6cvrj2PoAMEJGA=<br>vary: Origin<br>vary: accept-encoding<br>content-encoding: gzip<br>X-Cache: Miss from cloudfront<br>Via: 1.1 0bdcc10f69b746cb367ceb51e88a3d1c.cloudfront.net (CloudFront)<br>X-Amz-Cf-Pop: IAD61-P2<br>X-Amz-Cf-Id: QXxMrpn5dOn7lYD3El4rA0rwgggE6fmJKx_Pj-hdDw4nrNrQ9Be0bQ==<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: SAMEORIGIN<br>Referrer-Policy: strict-origin-when-cross-origin<br>X-Content-Type-Options: nosniff<br>Strict-Transport-Security: max-age=31536000</pre>
+                                    <pre>Content-Type: application/json<br>Content-Length: 121<br>Connection: keep-alive<br>Date: Thu, 07 Aug 2025 04:35:16 GMT<br>vary: Origin<br>apigw-requestid: O6v4xhF1IAMEZ2Q=<br>X-Cache: Error from cloudfront<br>Via: 1.1 dcccf6c408219d8b851fcd12a0068cea.cloudfront.net (CloudFront)<br>X-Amz-Cf-Pop: MIA3-C3<br>X-Amz-Cf-Id: M7y10xZq1TBNqTiLy_KmeHsVcypWy1yEvDd9h67nNKHusrDK8qhFaA==<br>X-XSS-Protection: 1; mode=block<br>X-Frame-Options: SAMEORIGIN<br>Referrer-Policy: strict-origin-when-cross-origin<br>X-Content-Type-Options: nosniff<br>Strict-Transport-Security: max-age=31536000</pre>
                                 <h4>Response Body</h4>
-                                    <pre>{<br>    &quot;data&quot;: {<br>        &quot;id&quot;: 5113,<br>        &quot;name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>        &quot;email&quot;: &quot;pruebasensandbox@yopmail.com&quot;,<br>        &quot;contact_name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>        &quot;phone_number&quot;: &quot;+573000000000&quot;,<br>        &quot;active&quot;: true,<br>        &quot;logo_url&quot;: null,<br>        &quot;legal_name&quot;: &quot;Alejandra Pruebas Sandbox UAT&quot;,<br>        &quot;legal_id_type&quot;: &quot;CC&quot;,<br>        &quot;legal_id&quot;: &quot;1069879849&quot;,<br>        &quot;public_key&quot;: &quot;pub_stagtest_g2u0HQd3ZMh05hsSgTS2lUV8t3s4mOt7&quot;,<br>        &quot;accepted_currencies&quot;: [<br>            &quot;COP&quot;<br>        ],<br>        &quot;fraud_javascript_key&quot;: null,<br>        &quot;fraud_groups&quot;: [<br>            <br>        ],<br>        &quot;accepted_payment_methods&quot;: [<br>            &quot;NEQUI&quot;,<br>            &quot;PSE&quot;,<br>            &quot;BANCOLOMBIA_TRANSFER&quot;,<br>            &quot;CARD&quot;,<br>            &quot;BANCOLOMBIA_COLLECT&quot;,<br>            &quot;BANCOLOMBIA_QR&quot;,<br>            &quot;DAVIPLATA&quot;,<br>            &quot;BANCOLOMBIA_BNPL&quot;,<br>            &quot;SU_PLUS&quot;<br>        ],<br>        &quot;payment_methods&quot;: [<br>            {<br>                &quot;name&quot;: &quot;BANCOLOMBIA_BNPL&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;BANCOLOMBIA_BNPL_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;BANCOLOMBIA_COLLECT&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;BANCOLOMBIA_COLLECT_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;BANCOLOMBIA_QR&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;BANCOLOMBIA_QR_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;BANCOLOMBIA_TRANSFER&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;BANCOLOMBIA_TRANSFER_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;CARD&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;CARD_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;DAVIPLATA&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;DAVIPLATA_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;NEQUI&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;NEQUI_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;PSE&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;PSE_SANDBOX&quot;<br>                    }<br>                ]<br>            },<br>            {<br>                &quot;name&quot;: &quot;SU_PLUS&quot;,<br>                &quot;payment_processors&quot;: [<br>                    {<br>                        &quot;name&quot;: &quot;SU_PLUS_SANDBOX&quot;<br>                    }<br>                ]<br>            }<br>        ],<br>        &quot;presigned_acceptance&quot;: {<br>            &quot;acceptance_token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6MjQzLCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvcmVnbGFtZW50by1Vc3Vhcmlvcy1Db2xvbWJpYS5wZGYiLCJmaWxlX2hhc2giOiJkMWVkMDI3NjhlNDEzZWEyMzFmNzAwMjc0N2Y0N2FhOSIsImppdCI6IjE3NTQ1MzM0NzYtOTQwMTgiLCJlbWFpbCI6IiIsImV4cCI6MTc1NDUzNzA3Nn0.Yyqg14KW_xDA33hpnMi5z5GM5zg3Pp7P00hXM5Fts78&quot;,<br>            &quot;permalink&quot;: &quot;https://wompi.com/assets/downloadble/reglamento-Usuarios-Colombia.pdf&quot;,<br>            &quot;type&quot;: &quot;END_USER_POLICY&quot;<br>        },<br>        &quot;presigned_personal_data_auth&quot;: {<br>            &quot;acceptance_token&quot;: &quot;eyJhbGciOiJIUzI1NiJ9.eyJjb250cmFjdF9pZCI6NDQxLCJwZXJtYWxpbmsiOiJodHRwczovL3dvbXBpLmNvbS9hc3NldHMvZG93bmxvYWRibGUvYXV0b3JpemFjaW9uLWFkbWluaXN0cmFjaW9uLWRhdG9zLXBlcnNvbmFsZXMucGRmIiwiZmlsZV9oYXNoIjoiMDI1YjQ1NzRjYTYwNjNlNGVlZDJmZmRhZGFjY2Q0MmIiLCJqaXQiOiIxNzU0NTMzNDc2LTk2MjE0IiwiZW1haWwiOiIifQ.s4tSHrTv3MbmiQUxgyKvUnCxN0lUyo7zurvAyiRaz1c&quot;,<br>            &quot;permalink&quot;: &quot;https://wompi.com/assets/downloadble/autorizacion-administracion-datos-personales.pdf&quot;,<br>            &quot;type&quot;: &quot;PERSONAL_DATA_AUTH&quot;<br>        },<br>        &quot;click_to_pay_dpa_id&quot;: null,<br>        &quot;mcc&quot;: null,<br>        &quot;acquirer_id&quot;: null<br>    },<br>    &quot;meta&quot;: {<br>        <br>    }<br>}</pre>
+                                    <pre>{<br>    &quot;error&quot;: {<br>        &quot;type&quot;: &quot;INVALID_ACCESS_TOKEN&quot;,<br>        &quot;reason&quot;: &quot;Se esperaba una llave pública o privada pero no se recibió ninguna&quot;<br>    }<br>}</pre>
                                     <h4>Response Cookies</h4>
                                     <pre></pre>
                             </div>
@@ -449,13 +455,13 @@
                             </table>
                         </td>
                     </tr>
-                <tr class="test-FAILURE">
+                <tr class="test-SUCCESS">
 
                     <td width="50" class="step-icon">
                         <a name="2"></a>
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
                                style="display:block">
-                                <i class="bi bi-caret-right-square imgstepSection2 failure-icon"
+                                <i class="bi bi-caret-right-square imgstepSection2 success-icon"
                                    style="margin-left: 20px; float:left; padding-right:5px"></i>
                             </a>
                     </td>
@@ -465,7 +471,7 @@
                             <a href="javaScript:void(0)" onClick="toggleDiv('stepSection2')"
                                style="display:block;">
                                 <span class="top-level-step">
-                                                Then deberia recibir un codigo de error 202
+                                                Then deberia recibir un codigo de error 401
                                         </span>
                             </a>
                             <span class="evidence">
@@ -473,80 +479,42 @@
                         </div>
                     </td>
 
-                    <td width="130"><span class="top-level-step">FAILURE</span></td>
-                    <td width="100"><span class="top-level-step">105ms</span></td>
+                    <td width="130"><span class="top-level-step">SUCCESS</span></td>
+                    <td width="100"><span class="top-level-step">014ms</span></td>
                 </tr>
                     <tr>
                         <td colspan="5">
                             <table id="stepSection2" class="step-table-nested" style="display:none;">
-                <tr class="test-FAILURE">
+                <tr class="test-SUCCESS">
 
                     <td width="70" class="step-icon">
                         <a name="2-0"></a>
                             <span style="margin-left: 40px;"
-                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-x-circle-fill failure-icon ' title='FAILURE'></i></a>
+                                  class="nested-group-icon"><a href='##beforetable'><i class='bi bi-check-circle-fill success-icon ' title='SUCCESS'></i></a>
                                 </span>
                     </td>
 
                     <td class="step-description-column">
                         <div class="step-description">
                                 <span class="nested-group-step">
-                                                Then merchant information$$ lambda$885/0x000001a9c26970c0 should be (202)
+                                                Then merchant information$$ lambda$864/0x000001a481636200 should be (401)
                                         </span>
                             <span class="evidence">
                                 </span>
                         </div>
                     </td>
 
-                    <td width="130"><span class="nested-group-step">FAILURE</span></td>
-                    <td width="100"><span class="nested-group-step">007ms</span></td>
+                    <td width="130"><span class="nested-group-step">SUCCESS</span></td>
+                    <td width="100"><span class="nested-group-step">003ms</span></td>
                 </tr>
-                    <tr class="test-FAILURE">
-                        <td width="40">&nbsp</td>
-                        <td width="%" colspan="3" class="error-message-cell">
-
-
-    <div style="display:block">
-        <div class="table">
-            <div class="row">
-                <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">java.lang.AssertionError: <br>Expected: &lt;202&gt;<br>     but: was &lt;200&gt;</span>
-                </div>
-                <div class="col-sm-2">
-                    <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-7"
-                       role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><i class="bi bi-eye"></i> More details</a>
-                </div>
-             </div>
-        </div>
-    <div>
-
-    <!-- Details Section -->
-    <div class="row stacktrace-details">
-      <div class="col">
-        <div class="collapse multi-collapse" id="stacktraceModal-7">
-            <div class="card">
-                <div class="card-header">
-                    <h4>java.lang.AssertionError </h4>
-                </div>
-                <div class="card-body">
-                    <div>
-                        <pre>co.wompi.stepdefinitions.MerchantStepDefinitions.deberiaRecibirUnCodigoDeError(MerchantStepDefinitions.java:88)<br />io.cucumber.java.Invoker.doInvoke(Invoker.java:66)<br />io.cucumber.java.Invoker.invoke(Invoker.java:24)<br />io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)<br />io.cucumber.java.JavaStepDefinition.execute(JavaStepDefinition.java:29)<br />io.cucumber.core.runner.CoreStepDefinition.execute(CoreStepDefinition.java:66)<br />io.cucumber.core.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:63)<br />io.cucumber.core.runner.TestStep.executeStep(TestStep.java:84)<br />io.cucumber.core.runner.TestStep.run(TestStep.java:56)<br />io.cucumber.core.runner.PickleStepTestStep.run(PickleStepTestStep.java:51)<br />io.cucumber.core.runner.TestCase.run(TestCase.java:84)<br />io.cucumber.core.runner.Runner.runPickle(Runner.java:75)<br />io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:130)<br />io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)<br />io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:130)<br />io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:144)<br />io.cucumber.junit.FeatureRunner.runChild(FeatureRunner.java:28)<br />io.cucumber.junit.FeatureRunner.run(FeatureRunner.java:137)<br />io.cucumber.junit.CucumberSerenityBaseRunner.runChild(CucumberSerenityBaseRunner.java:330)<br />io.cucumber.junit.CucumberSerenityBaseRunner.runChild(CucumberSerenityBaseRunner.java:51)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)<br />worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)<br /></pre>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-                        </td>
-                    </tr>
 
                             </table>
                         </td>
                     </tr>
-            <tr class="test-FAILURE">
+            <tr class="test-SUCCESS">
                     <td colspan="2"></td>
-                <td width="130"><span class="top-level-step"><em>FAILURE</em></span></td>
-                <td width="100"><span class="top-level-step"><em>0.74s</em></span></td>
+                <td width="130"><span class="top-level-step"><em>SUCCESS</em></span></td>
+                <td width="100"><span class="top-level-step"><em>0.37s</em></span></td>
             </tr>
 
         </table>

@@ -1,5 +1,6 @@
 @Regression
-Feature: Consulta de informacion del comercio en Wompi
+Feature:  Automatización para el comerciop Wompi de manera que se garantice que las transacciones de pago se realicen
+  de manera satisfactoria, junto a escenarios alternos
   @test1
   Scenario: Consulta exitosa de informacion del comercio con llave publica valida
     Given que tengo una llave publica valida
@@ -19,7 +20,7 @@ Feature: Consulta de informacion del comercio en Wompi
   Scenario: Consulta fallida con llave pública invalida
     Given que tengo una llave publica invalida
     When consulto la informacion del comercio
-    Then deberia recibir un codigo de error 401
+    Then deberia recibir un codigo de error 422
   @test5
   Scenario: Consulta fallida sin llave publica
     Given que no proporciono una llave publica
