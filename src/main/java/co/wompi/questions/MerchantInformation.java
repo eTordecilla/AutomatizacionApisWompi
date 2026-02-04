@@ -21,7 +21,8 @@ public class MerchantInformation {
                 .answeredBy(actor)                 // Obtiene la última respuesta para el actor
                 .as(MerchantResponse.class)        // Deserializa la respuesta al modelo MerchantResponse
                 .getData()                        // Accede al objeto 'data'
-                .getName();                       // Obtiene el campo 'name'
+                .getName()                        // Obtiene el campo 'name' como Optional<String>
+                .orElse(null);                    // Extrae el valor o null si está vacío
     }
 
     // Verifica si un campo específico existe dentro del objeto 'data' en la respuesta
@@ -38,7 +39,8 @@ public class MerchantInformation {
                 .answeredBy(actor)
                 .as(MerchantResponse.class)
                 .getData()
-                .getAcceptedPaymentMethods(); // Se asume que este método existe en el modelo MerchantData
+                .getAcceptedPaymentMethods() // Devuelve Optional<List<String>>
+                .orElse(null);               // Extrae el valor o null si está vacío
     }
 
     // Valida si la respuesta es válida, es decir, no es nula y contiene el nombre del comercio
@@ -51,7 +53,7 @@ public class MerchantInformation {
             // La respuesta es válida si no es nula, tiene data, y data tiene nombre
             return response != null &&
                     response.getData() != null &&
-                    response.getData().getName() != null;
+                    response.getData().getName().isPresent();
         };
     }
 

@@ -1,45 +1,56 @@
 package co.wompi.tasks;
 
-import net.serenitybdd.rest.SerenityRest;
+import co.wompi.exceptions.MerchantApiException;
+import co.wompi.utils.ApiConfig;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
-import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.rest.interactions.Get;
 import net.thucydides.core.annotations.Step;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-// Implementa la interfaz Task del patrón Screenplay.
-// Representa la acción de consultar información de un comercio por su llave pública.
 public class GetMerchant implements Task {
 
-    // Llave pública del comercio que se va a consultar
+    private static final Logger logger = LoggerFactory.getLogger(GetMerchant.class);
+    
     private final String publicKey;
 
-    // Constructor que recibe la llave pública
     public GetMerchant(String publicKey) {
         this.publicKey = publicKey;
     }
 
-    // Método estático para crear la tarea de forma más legible desde los tests
     public static GetMerchant withPublicKey(String publicKey) {
-        // Usa Tasks.instrumented para la correcta creación de la tarea por Serenity
-        return Tasks.instrumented(GetMerchant.class, publicKey);
+        return new GetMerchant(publicKey);
     }
 
-    // Paso que se registrará en los reportes de Serenity. Se muestra el actor que ejecuta la acción.
-    @Step("{0} consulta la información del comercio")
+    @Override
+    @Step("{0} consulta la información del comercio con llave pública")
     public <T extends Actor> void performAs(T actor) {
+        logger.info("Consultando información del comercio con publicKey: {}", maskPublicKey(publicKey));
+        
         try {
-            // El actor realiza la acción de hacer una petición GET al recurso con la publicKey como parámetro de ruta
             actor.attemptsTo(
                     Get.resource("/v1/merchants/{publicKey}")
-                            .with(
-                                    request -> request
-                                            .pathParam("publicKey", publicKey) // Se inserta el valor de la llave pública en la URL
+                            .with(request -> request
+                                    .pathParam("publicKey", publicKey)
+                                    .relaxedHTTPSValidation()
+                                    .config(io.restassured.RestAssured.config()
+                                        .httpClient(io.restassured.config.HttpClientConfig.httpClientConfig()
+                                            .setParam("http.connection.timeout", ApiConfig.getInstance().getTimeout())
+                                            .setParam("http.socket.timeout", ApiConfig.getInstance().getTimeout())
+                                        )
+                                    )
                             )
             );
+            logger.debug("Petición GET enviada exitosamente para el comercio");
         } catch (Exception e) {
-            // Si ocurre un error durante la petición, lanza una excepción con mensaje descriptivo
-            throw new RuntimeException("Error al consultar el comercio: " + e.getMessage(), e);
+            logger.error("Error al consultar el comercio: {}", e.getMessage(), e);
+            throw new MerchantApiException("Error al consultar el comercio: " + e.getMessage(), e);
         }
+    }
+    
+    private String maskPublicKey(String key) {
+        if (key == null || key.length() < 8) return "***";
+        return key.substring(0, 4) + "***" + key.substring(key.length() - 4);
     }
 }
